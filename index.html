@@ -1,128 +1,71 @@
-<!DOCTYPE html>
+ !DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Salon Booking</title>
+
+  <!-- Mobile viewport (DO NOT CHANGE) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>VonBooking</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
+      padding: 16px;
       font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
+      background: #ffffff;
+      text-align: center;
+      font-size: 16px;
     }
 
     .container {
-      max-width: 400px;
+      max-width: 380px;
       margin: auto;
-      background: white; blue;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
 
-    img {sj-logo_940147-159.avif
-      display: block;
-      margin: 0 auto 20px;
-      width: 120px;
+    h1 {
+      font-size: 26px;
+      margin-bottom: 8px;
     }
 
-    h2 {
-      text-align: center;
-    }
-
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
+    p {
+      font-size: 16px;
+      margin-bottom: 18px;
+      color: #444;
     }
 
     button {
-      background: #4a90e2;
-      color: white;
+      width: 100%;
+      max-width: 360px;
+      font-size: 17px;
+      padding: 12px;
+      margin: 8px auto;
+      border-radius: 8px;
       border: none;
-      border-radius: 5px;
+      background: #2563eb;
+      color: white;
+      display: block;
       cursor: pointer;
     }
 
-    button:hover {
-      background: #357ab8;
-    }
-
-    .success {
-      color: green;
-      text-align: center;
-      margin-top: 10px;
+    button:active {
+      opacity: 0.9;
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
+    <h1>VonBooking</h1>
+    <p>Scan. Book. Simple.</p>
 
-<div class="container">
-
-  <!-- APP LOGO -->
-  <img src="logo.png" alt="App Logo"
-       style="width:120px; display:block; margin:0 auto 20px;">
-
-  <h2>Book Appointment</h2>
-
-
-  <input id="name" type="text" placeholder="Full Name" required>
-  <input id="phone" type="tel" placeholder="Phone Number" required>
-  <input id="service" type="text" placeholder="Service (Haircut, Nails, etc.)" required>
-
-  <select id="time">
-    <option value="">Select Time</option>
-    <option>9:00 AM</option>
-    <option>10:00 AM</option>
-    <option>11:00 AM</option>
-    <option>1:00 PM</option>
-    <option>2:00 PM</option>
-    <option>3:00 PM</option>
-  </select>
-
-  <button onclick="submitBooking()">Submit</button>
-
-  <div id="message" class="success"></div>
-
-</div>
-
-<script>
-  function submitBooking() {
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const service = document.getElementById("service").value;
-    const time = document.getElementById("time").value;
-
-    if (!name || !phone || !service || !time) {
-      alert("Please fill out all fields.");
-      return;
-    }
-
-    const booking = {
-      name,
-      phone,
-      service,
-      time,
-      date: new Date().toLocaleString()
-    };
-
-    // TEMP STORAGE (until backend is connected)
-    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-    bookings.push(booking);
-    localStorage.setItem("bookings", JSON.stringify(bookings));
-
-    document.getElementById("message").innerText =
-      "Booking submitted! Please wait for confirmation.";
-
-    document.getElementById("name").value = "";
-    document.getElementById("phone").value = "";
-    document.getElementById("service").value = "";
-    document.getElementById("time").value = "";
-  }
-</script>
-
+    <button>Scan</button>
+    <button>Book</button>
+    <button>Sample</button>
+  </div>
 </body>
 </html>
- 
