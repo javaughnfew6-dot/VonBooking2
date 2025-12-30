@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f7;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 420px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: gray;
+      margin-bottom: 20px;
+    }
+
+    .appointment {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .appointment strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button.done {
+      background: #2ecc71;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Employee Dashboard</h2>
+    <div class="subtitle">Today's Appointments</div>
+
+    <div id="appointments"></div>
+  </div>
+
+  <script>
+    // Fake appointments (for now)
+    const appointments = [
+      { name: "John Doe", service: "Haircut", time: "12:00 PM" },
+      { name: "Maria Smith", service: "Nails", time: "1:30 PM" }
+    ];
+
+    const container = document.getElementById("appointments");
+
+    appointments.forEach((appt, index) => {
+      const div = document.createElement("div");
+      div.className = "appointment";
+
+      div.innerHTML = `
+        <strong>${appt.name}</strong>
+        Service: ${appt.service}<br>
+        Time: ${appt.time}
+        <button class="done" onclick="markDone(${index})">Mark Done</button>
+      `;
+
+      container.appendChild(div);
+    });
+
+    function markDone(index) {
+      alert("Appointment completed ✔");
+    }
+  </script>
+
+</body>
+</html>
